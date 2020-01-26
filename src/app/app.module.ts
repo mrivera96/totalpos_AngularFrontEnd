@@ -21,7 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UsersService} from './services/users/users.service';
 import {RolesService} from './services/roles/roles.service';
 import {BranchesService} from './services/branches/branches.service';
-import { ResponseModalComponent } from './components/layout/response-modal/response-modal.component';
+import { UserFormComponent } from './components/user/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { ResponseModalComponent } from './components/layout/response-modal/respo
     IndexComponent,
     FooterComponent,
     AdminComponent,
-    ResponseModalComponent
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,

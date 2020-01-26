@@ -6,7 +6,6 @@ import {RolesService} from '../../../services/roles/roles.service';
 import {Role} from '../../../models/role';
 import {Branch} from '../../../models/branch';
 import {BranchesService} from '../../../services/branches/branches.service';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-create',
@@ -16,6 +15,7 @@ import { $ } from 'protractor';
 export class CreateComponent implements OnInit {
 
   constructor(private usersService: UsersService, private rolesService: RolesService, private branchesService: BranchesService) {
+
   }
 
   private user: UserInterface = {
@@ -32,20 +32,15 @@ export class CreateComponent implements OnInit {
     branch_id: null
   };
 
-  roles: Role[];
-  branches: Branch[];
-
   errors = [];
 
   ngOnInit() {
-    this.loadRoles();
-    this.loadBranches();
+
   }
 
 
-  onStore(form: NgForm) {
+  onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log(this.user);
       return this.usersService.store(this.user)
         .subscribe(data => {
           alert('Usuario creado con éxito.');
@@ -57,18 +52,6 @@ export class CreateComponent implements OnInit {
             }
           });
     }
-  }
-
-  loadRoles() {
-    return this.rolesService.index().subscribe(data => {
-      this.roles = data.roles;
-    });
-  }
-
-  loadBranches() {
-    return this.branchesService.index().subscribe( data => {
-      this.branches = data. branches;
-    });
   }
 
 }

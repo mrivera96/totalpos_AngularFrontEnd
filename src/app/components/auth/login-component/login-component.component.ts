@@ -8,8 +8,7 @@ import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login-component',
-  templateUrl: './login-component.component.html',
-  styleUrls: ['./login-component.component.css']
+  templateUrl: './login-component.component.html'
 })
 export class LoginComponentComponent implements OnInit {
   constructor(private appComponent: AppComponent, private authService: AuthService, private router: Router, private locat: Location) {
