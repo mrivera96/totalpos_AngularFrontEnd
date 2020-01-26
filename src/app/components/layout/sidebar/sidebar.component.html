@@ -1,0 +1,107 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-teal elevation-4">
+  <!-- Brand Logo -->
+  <a href="dashboard" class="brand-link navbar-dark">
+    <span class="brand-text font-weight-light">Total POS</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition">
+    <!-- Sidebar user panel (optional) -->
+    <div *ngIf="currentUser" class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="assets/img/{{currentUser.avatar}}" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">{{currentUser.name}}</a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child " data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li *ngIf="currentUser" class="nav-item ">
+          <a [routerLink]="['dashboard/admin']" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              <i class="right fas "></i>
+            </p>
+          </a>
+        </li>
+
+        <li *ngIf="currentUser" class="nav-item">
+          <a href="sale/index" class="nav-link">
+            <i class="nav-icon fas fa-store-alt"></i>
+            <p>
+              Punto de venta
+            </p>
+          </a>
+        </li>
+
+
+
+        <li *ngIf="currentUser" class="nav-item">
+          <a [routerLink]="['user/index']" class="nav-link">
+            <i class="nav-icon fas fa-user-friends"></i>
+            <p>
+             Usuarios
+            </p>
+          </a>
+        </li>
+
+
+        <li *ngIf="currentUser" class="nav-item has-treeview ">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-list"></i>
+            <p>
+              Inventario
+            </p>
+
+            <p class="pull-right-container">
+              <i class="fa fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item ">
+              <a href="category/index" class="nav-link">
+                <i class="fas fa-th nav-icon"></i>
+                <p>Categorías de Productos</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="supplier/index" class="nav-link">
+                <i class="fas fa-truck nav-icon"></i>
+                <p>Proveedores</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="product/index" class="nav-link">
+                <i class="fas fa-tag nav-icon"></i>
+                <p>Productos</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li *ngIf="currentUser" class="nav-item">
+          <a href="customer/index" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Clientes
+            </p>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+
+</aside>

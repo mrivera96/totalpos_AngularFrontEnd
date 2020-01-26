@@ -1,0 +1,75 @@
+<div class="card mb-0 ">
+  <div class="card-body">
+    <h5 class="card-title">Lista de usuarios</h5>
+    <button class="btn btn-success float-right" data-toggle="modal" data-target="#createUser">
+      + Agregar Usuario
+    </button>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Primer Nombre</th>
+        <th scope="col">Segundo Nombre</th>
+        <th scope="col">Rol</th>
+      </tr>
+      </thead>
+
+      <tbody *ngIf="!loading">
+
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.role.description}}</td>
+        <td>
+          <button class="btn btn-info" type="button">
+            <i class="fas fa-eye"></i>
+            Ver
+          </button>
+        </td>
+
+        <td>
+          <button class="btn btn-warning" type="button">
+            <i class="fas fa-edit"></i>
+            Editar
+          </button>
+        </td>
+
+        <td>
+          <button class="btn btn-danger" type="button">
+            <i class="fas fa-trash-alt"></i>
+            Eliminar
+          </button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <nav *ngIf="!loading">
+      <ul class="pagination">
+        <li class="page-item" *ngIf="pagination.currentPage > 1" >
+          <button class="page-link" type="button" (click)="changePage(pagination.currentPage - 1)">
+            <span>Atrás</span>
+          </button>
+        </li>
+
+        <li *ngFor="let page of pageNumber()"  [className]="page == isActive() ? 'page-item active' : 'page-item'">
+          <button class="page-link" type="button" (click)="changePage(page)" >
+            <span>{{page}}</span>
+          </button>
+        </li>
+
+        <li class="page-item" *ngIf="pagination.currentPage < pagination.last_page">
+          <button class="page-link" type="button" (click)="changePage(pagination.currentPage + 1)">
+            <span>Siguiente</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div *ngIf="loading" class="text-center loader">Loading...</div>
+  </div>
+
+  <app-create></app-create>
+
+</div>
+
