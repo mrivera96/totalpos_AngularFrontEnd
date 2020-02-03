@@ -11,7 +11,7 @@ import {AuthService} from '../auth.service';
   providedIn: 'root'
 })
 export class UsersService {
-  urlApi = 'http://totalpos_api.test/api/user/';
+  urlApi = 'http://api_totalpos.test/api/user/';
   constructor(private http: HttpClient, private authService: AuthService) {}
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',

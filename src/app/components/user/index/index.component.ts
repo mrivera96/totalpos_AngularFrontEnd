@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit {
   getAllUsers(page?) {
     this.loading = true;
     this.usersService.index(page).subscribe(data => {
-      this.pagination = data.pagination;
+      this.pagination = data.users;
       this.users = data.users.data;
       this.loading = false;
     });

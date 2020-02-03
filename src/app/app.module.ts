@@ -12,7 +12,6 @@ import { IndexComponent } from './components/user/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 // Services
 import { AuthService } from './services/auth.service';
-import { DataApiServiceService } from './services/data-api-service.service';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { AdminComponent } from './components/dashboard/admin/admin.component';
 
@@ -43,7 +42,7 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, DataApiServiceService, UsersService, RolesService, BranchesService],
+  providers: [AuthService, UsersService, RolesService, BranchesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

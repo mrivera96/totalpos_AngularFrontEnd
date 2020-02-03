@@ -8,7 +8,7 @@ import {Role} from '../../models/role';
   providedIn: 'root'
 })
 export class BranchesService {
-  urlApi = 'http://totalpos_api.test/api/branch/';
+  urlApi = 'http://api_totalpos.test/api/branch/';
   constructor(private http: HttpClient, private authService: AuthService) { }
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',

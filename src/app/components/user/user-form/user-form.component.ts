@@ -16,7 +16,7 @@ export class UserFormComponent implements OnInit {
   roles: Role[];
   branches: Branch[];
 
-  @Output() storedUser: EventEmitter<NgForm>;
+  //@Output() storedUser: EventEmitter<NgForm>;
 
   constructor( private rolesService: RolesService,
                private branchesService: BranchesService) {

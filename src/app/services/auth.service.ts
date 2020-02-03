@@ -16,9 +16,10 @@ export class AuthService {
     'Content-Type': 'application/json'
   });
 
+  private urlApi = 'http://api_totalpos.test/api/auth/';
+
   login(username: string, password: string): Observable<any> {
-    const urlApi = 'http://totalpos_api.test/api/login';
-    return this.http.post<UserInterface>(urlApi, { username, password }, {headers : this.headers})
+    return this.http.post<UserInterface>(this.urlApi + 'login', { username, password }, {headers : this.headers})
       .pipe(
         map(data => data )
       );
@@ -49,11 +50,10 @@ export class AuthService {
   }
 
   logout() {
-    const urlApi = 'http://totalpos_api.test/api/logout';
     const tkn = localStorage.getItem('tkn');
     localStorage.removeItem('tkn');
     localStorage.removeItem('currentUser');
-    return this.http.get(urlApi, {headers : this.headers})
+    return this.http.get(this.urlApi + 'logout', {headers : this.headers})
       .pipe(
         map(data => data )
       );
